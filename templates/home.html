@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'home.css' %}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"> <!-- Font Awesome -->
+    <title>Number Guessing Game</title>
+</head>
+<body>
+    <div class="game-container">
+        <p class="game-title">
+            <i class="fas fa-gamepad"></i> Hi, welcome to the game! This is a number guessing game.
+        </p>
+        <p class="game-text">
+            <i class="fas fa-info-circle"></i> You have 7 chances to guess the number.
+        </p>
+        <a href="{% url 'playground' %}">
+            <button class="start-button">
+                <i class="fas fa-play"></i> Let's start the game
+            </button>
+        </a>
+    </div>
+</body>
+</html>

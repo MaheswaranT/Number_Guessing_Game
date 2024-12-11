@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'playground.css' %}">
+    <title>Number Guessing Game</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Number Guessing Game</h1>
+
+        {% if chances != 0 %}
+        <p>You have {{ chances }} chances remaining to guess the number (between 1 and 100).</p>
+
+        <form action="{% url 'playground' %}" method="GET">
+            <input 
+                type="number" 
+                name="guess" 
+                id="guessInput" 
+                placeholder="Enter your guess" 
+                min="1" 
+                max="100" 
+                required>
+            <button type="submit">Submit Guess</button>
+        </form>
+
+        {% if result %}
+        <div class="message" id="message">{{ result }}</div>
+        {% endif %}
+
+        {% else %}
+        <div class="message" id="message">{{ result }}</div><br>
+        <form action="{% url 'playground' %}">
+            <button type="submit"> Play Again! </button>
+        </form>
+        {% endif %}
+    </div>
+</body>
+</html>
